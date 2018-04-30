@@ -1,0 +1,9 @@
+<div [routerLink]="['/']" class="logo">
+    <span class="logo-style">Dasha's</span>
+    <span class="sub-logo">Диск</span>
+</div>
+
+<div *ngIf="isHome">
+    <button mat-raised-button color="primary" (click)="createNewDocument()">Создать
+    </button>
+</div>

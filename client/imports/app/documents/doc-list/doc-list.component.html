@@ -1,0 +1,32 @@
+<mat-list role="list">
+    <mat-list-item
+            class="doc-row"
+            role="listitem"
+            *ngFor="let document of documents | async"
+    >
+        <mat-icon mat-list-icon>
+            description
+        </mat-icon>
+        <p mat-line [routerLink]="['/' + document._id]">
+            <b class="doc-name">{{ document.name }}</b>
+            <!--<span class="doc-preview" [innerHTML]="document.content"></span>-->
+        </p>
+        <p mat-line class="date">Последний раз
+            изменено {{ getTimeCount(document.updated) }}</p>
+
+        <button mat-icon-button [matMenuTriggerFor]="actionsMenu">
+            <mat-icon>more_vert</mat-icon>
+        </button>
+
+        <mat-menu #actionsMenu="matMenu">
+            <button mat-menu-item (click)="removeDocument(document._id)">
+                <mat-icon>delete</mat-icon>
+                <span>Удалить</span>
+            </button>
+        </mat-menu>
+        <!--<mat-card-actions>-->
+        <!--<button mat-button [routerLink]="[document._id]">Редактировать</button>-->
+        <!--<button mat-button (click)="removeDocument(document._id)">Удалить</button>-->
+        <!--</mat-card-actions>-->
+    </mat-list-item>
+</mat-list>

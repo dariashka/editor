@@ -1,43 +1,47 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
-import { DocumentComponent } from './doc-add/doc-add.component';
-import { DocumentListComponent } from './doc-list/doc-list.component';
+import { DocumentEditComponent } from './documents/doc-edit/doc-edit.component';
+import { DocumentListComponent } from './documents/doc-list/doc-list.component';
+import { DocumentsModule } from './documents/documents.module';
+import { HeaderComponent } from './layout/header/header.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   imports: [
     BrowserModule,
-    FormsModule,//t
+    SharedModule,
+    DocumentsModule,
+    HttpClientModule,
     RouterModule.forRoot([
       {
         path: 'documents',
         component: DocumentListComponent
       },
       {
-        path: 'create',
-        component: DocumentComponent
+        path: ':id',
+        component: DocumentEditComponent,
       },
-      // Home Page
       {
         path: '',
         redirectTo: '/documents',
         pathMatch: 'full'
       },
-      // 404 Page
       {
         path: '**',
         component: PageNotFoundComponent
       }
-    ])
+    ]),
+    BrowserAnimationsModule
   ],
   declarations: [
     AppComponent,
-    DocumentComponent,
-    DocumentListComponent,
-    PageNotFoundComponent
+    HeaderComponent,
+    PageNotFoundComponent,
   ],
   bootstrap: [
     AppComponent

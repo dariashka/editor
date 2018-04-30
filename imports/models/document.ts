@@ -1,5 +1,6 @@
 export interface Document {
   _id?: string;
-  name?: string;
+  name: string;
+  updated: Date;
   content?: string;
 }

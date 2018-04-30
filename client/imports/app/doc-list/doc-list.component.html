@@ -1,8 +1,0 @@
-<a routerLink="/create" class="addBtn">Create</a>
-<ul>
-    <li *ngFor="let document of documents | async">
-        {{ document.name }}
-        {{ document.content }}
-        <button (click)="removeDocument(document._id)" class="deleteBtn">Delete</button>
-    </li>
-</ul>
