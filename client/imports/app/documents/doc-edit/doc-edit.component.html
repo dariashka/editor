@@ -1,23 +1,38 @@
 <div *loading="!document">
     <div class="doc-header">
-        <h2 (click)="changeEditMode()" *ngIf="!nameEditMode">
-            {{ document.name }}
-            <span class="icon">
+        <div>
+            <h2 (click)="changeEditMode()" *ngIf="!nameEditMode">
+                {{ document.name }}
+                <span class="icon">
                 <mat-icon (click)="changeEditMode()">mode_edit</mat-icon>
             </span>
-        </h2>
-        <mat-form-field *ngIf="nameEditMode">
-            <input
-                    matInput
-                    [ngModel]="document.name"
-                    (blur)="changeEditMode()"
-                    (change)="onNameChange($event)"
-                    placeholder="Название документа"
+            </h2>
+            <mat-form-field *ngIf="nameEditMode">
+                <input
+                        matInput
+                        [ngModel]="document.name"
+                        (blur)="changeEditMode()"
+                        (change)="onNameChange($event)"
+                        placeholder="Название документа"
+                >
+            </mat-form-field>
+        </div>
+
+        <div>
+            <button
+                    mat-button
+                    type="submit"
+                    color="primary"
+                    (click)="invite()"
             >
-        </mat-form-field>
+                <mat-icon>share</mat-icon>
+                Поделиться
+            </button>
+        </div>
     </div>
 
-    <ckeditor #editor
+    <ckeditor
+            #editor
             [ngModel]="document && document.content"
             [config]="{height: '1000'}"
             [readonly]="false"

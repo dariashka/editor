@@ -4,6 +4,7 @@ import { MeteorObservable } from 'meteor-rxjs';
 import { Subscription } from 'rxjs/Subscription';
 import { Documents } from '../../../../../imports/collections/documents';
 import { Document } from '../../../../../imports/models/document';
+import { AuthService } from '../../auth/auth.service';
 
 @Component({
   selector: 'app-doc-edit',
@@ -17,7 +18,10 @@ export class DocumentEditComponent implements OnInit {
 
   @ViewChild('editor') public editor;
 
-  constructor(private _route: ActivatedRoute) {
+  constructor(
+    private _route: ActivatedRoute,
+    private _auth: AuthService
+  ) {
   }
 
   public ngOnInit() {
@@ -35,7 +39,8 @@ export class DocumentEditComponent implements OnInit {
       this.document._id,
       this.document.name,
       content,
-      new Date()
+      new Date(),
+      this._auth.currentUserId
     );
   }
 
@@ -51,6 +56,11 @@ export class DocumentEditComponent implements OnInit {
       name,
       this.document.content,
       new Date(),
+      this._auth.currentUserId
     );
+  }
+
+  public invite() {
+    location.href = `mailto:?subject=Присоединяйся к редактированию документа ${this.document.name}&body=Документ - ${window.location}`;
   }
 }

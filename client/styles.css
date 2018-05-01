@@ -26,3 +26,11 @@ my-app {
 button {
     text-transform: uppercase;
 }
+
+.full-width-input {
+    width: 100%;
+}
+
+.form-buttons {
+    text-align: right;
+}

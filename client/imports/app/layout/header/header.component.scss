@@ -19,13 +19,20 @@
   max-height: 104px;
 }
 
-:host div {
+:host > div {
   padding: 5px;
-  width: 100%
+  width: 100%;
+  justify-content: space-between;
+  display: inline-flex;
 }
 
 .logo {
   cursor: pointer;
+  float: left;
+}
+
+.user-info {
+  float: right;
 }
 
 .logo-style {

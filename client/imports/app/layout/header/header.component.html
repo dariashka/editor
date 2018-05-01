@@ -1,8 +1,26 @@
-<div [routerLink]="['/']" class="logo">
-    <span class="logo-style">Dasha's</span>
-    <span class="sub-logo">Диск</span>
-</div>
+<div>
+    <div [routerLink]="['']" class="logo">
+        <span class="logo-style">Dasha's</span>
+        <span class="sub-logo">Диск</span>
+    </div>
+    <div class="user-info" *ngIf="isLoggedIn">
+        <button mat-button [matMenuTriggerFor]="userMenu">
+            <mat-icon>face</mat-icon>
+            {{ currentUser?.username || currentUser?.emails[0].address }}
+        </button>
 
+        <mat-menu #userMenu="matMenu">
+            <button mat-menu-item [routerLink]="['/user']">
+                <mat-icon>build</mat-icon>
+                <span>Профиль</span>
+            </button>
+            <button mat-menu-item [routerLink]="['/logout']">
+                <mat-icon>lock</mat-icon>
+                <span>Выйти</span>
+            </button>
+        </mat-menu>
+    </div>
+</div>
 <div *ngIf="isHome">
     <button mat-raised-button color="primary" (click)="createNewDocument()">Создать
     </button>

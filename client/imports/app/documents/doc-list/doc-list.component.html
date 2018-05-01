@@ -12,7 +12,8 @@
             <!--<span class="doc-preview" [innerHTML]="document.content"></span>-->
         </p>
         <p mat-line class="date">Последний раз
-            изменено {{ getTimeCount(document.updated) }}</p>
+            изменено {{ getTimeCount(document.updated) }}
+            {{ document.authorId === myId ? 'вами' : getAuthor(document.authorId) }}</p>
 
         <button mat-icon-button [matMenuTriggerFor]="actionsMenu">
             <mat-icon>more_vert</mat-icon>
@@ -24,9 +25,5 @@
                 <span>Удалить</span>
             </button>
         </mat-menu>
-        <!--<mat-card-actions>-->
-        <!--<button mat-button [routerLink]="[document._id]">Редактировать</button>-->
-        <!--<button mat-button (click)="removeDocument(document._id)">Удалить</button>-->
-        <!--</mat-card-actions>-->
     </mat-list-item>
 </mat-list>

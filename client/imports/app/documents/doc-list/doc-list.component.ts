@@ -7,6 +7,8 @@ import { Document } from '../../../../../imports/models/document';
 
 import * as moment from 'moment';
 import 'moment/locale/ru';
+import { AuthService } from '../../auth/auth.service';
+
 @Component({
   selector: 'doc-list',
   templateUrl: 'doc-list.component.html',
@@ -15,6 +17,13 @@ import 'moment/locale/ru';
 export class DocumentListComponent implements OnInit, OnDestroy {
   public documents: Observable<Document[]>;
   public docListSubscription: Subscription;
+
+  public get myId() {
+    return this._auth.currentUserId;
+  }
+
+  constructor(private _auth: AuthService) {
+  }
 
   public ngOnInit() {
     moment.locale('ru');
@@ -36,5 +45,10 @@ export class DocumentListComponent implements OnInit, OnDestroy {
 
   public getTimeCount(date: Date) {
     return moment(date).fromNow();
+  }
+
+  public getAuthor(id: string) {
+    const author = Meteor.users.findOne(id);
+    return author && (author.username || author.emails[0].address);
   }
 }

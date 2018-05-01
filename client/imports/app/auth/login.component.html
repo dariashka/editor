@@ -1,0 +1,99 @@
+<div class="flex-container" *loading="isLoggingIn">
+    <!--<img class="logo" src="img/cloudstack_logo.png">-->
+    <mat-card class="login">
+        <mat-button-toggle-group
+                #group="matButtonToggleGroup"
+                class="full-width-input"
+                [(ngModel)]="mode"
+        >
+            <mat-button-toggle value="signup" style="width:50%; text-align: center">
+                Регистрация
+            </mat-button-toggle>
+            <mat-button-toggle value="login" style="width:50%; text-align: center">
+                Вход
+            </mat-button-toggle>
+        </mat-button-toggle-group>
+        <form #loginForm="ngForm" novalidate>
+            <div class="mat-dialog-content">
+                <mat-form-field class="full-width-input" *ngIf="mode === 'signup'">
+                    <input
+                            matInput
+                            name="username"
+                            [(ngModel)]="credentials.username"
+                            [placeholder]="'Имя пользователя'"
+                            autofocus
+                            required
+                            #username="ngModel"
+                    >
+                </mat-form-field>
+                <br/>
+                <mat-form-field class="full-width-input">
+                    <input
+                            matInput
+                            name="email"
+                            [(ngModel)]="credentials.email"
+                            [placeholder]="'Email'"
+                            autofocus
+                            required
+                            #email="ngModel"
+                    >
+                    <mat-error *ngIf="email.hasError('required')">
+                        Введите корректный email
+                    </mat-error>
+                </mat-form-field>
+                <br/>
+                <mat-form-field class="full-width-input">
+                    <input
+                            matInput
+                            type="password"
+                            name="password"
+                            [(ngModel)]="credentials.password"
+                            [placeholder]="'Пароль'"
+                            required
+                            [type]="hide ? 'password' : 'text'"
+                            #passwordControl="ngModel"
+                    >
+                    <mat-icon matSuffix (click)="hide = !hide">
+                        {{hide ? 'visibility' : 'visibility_off'}}
+                    </mat-icon>
+                    <mat-error *ngIf="passwordControl.hasError('required')">
+                        Введите пароль
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="mat-dialog-actions">
+                <button
+                        *ngIf="mode === 'login'"
+                        mat-button
+                        color="primary"
+                        type="button"
+                        (click)="login()"
+                        [disabled]="(passwordControl.invalid && !passwordControl.pristine) || (email.invalid && !email.pristine)"
+                >
+                    Войти
+                </button>
+                <button
+                        *ngIf="mode === 'signup'"
+                        mat-button
+                        type="button"
+                        color="primary"
+                        (click)="signup()"
+                        [disabled]="(passwordControl.invalid && !passwordControl.pristine) || (email.invalid && !email.pristine)"
+                >
+                    Зарегистрироваться
+                </button>
+
+                <!--<button-->
+                <!--mat-icon-button-->
+                <!--class="options-button"-->
+                <!--type="button"-->
+                <!--[matTooltip]="(showDomain ? 'AUTH.HIDE_ADVANCED' : 'AUTH.SHOW_ADVANCED') | translate"-->
+                <!--matTooltipPosition="above"-->
+                <!--(click)="toggleDomain()"-->
+                <!-->-->
+                <!--<mat-icon [class.domains-visible]="showDomain">settings</mat-icon>-->
+                <!--</button>-->
+            </div>
+        </form>
+    </mat-card>
+</div>
