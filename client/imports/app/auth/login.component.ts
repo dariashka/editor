@@ -46,6 +46,7 @@ export class LoginComponent {
       this.credentials.password,
       (error) => {
         if (!error) {
+          localStorage.setItem('user', this._auth.currentUserId);
           this._router.navigate(['/documents']);
         } else {
           this._handleError(error);

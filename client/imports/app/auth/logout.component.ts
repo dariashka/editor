@@ -16,6 +16,7 @@ export class LogoutComponent {
   ) {
     Meteor.logout(() => {
       this.router.navigate(['/login']);
+      localStorage.removeItem('user');
       this.dialog.closeAll();
     });
   }

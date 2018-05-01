@@ -12,7 +12,8 @@
                 <div class="author">
                     <span>{{ usersDictionary[message.authorId]
                     && (usersDictionary[message.authorId].username
-                    || usersDictionary[message.authorId].emails[0].address ) }}:</span>
+                    || (usersDictionary[message.authorId].emails
+                    && usersDictionary[message.authorId].emails[0].address)) }}:</span>
                 </div>
                 <div class="message">
                     <p [title]="message.date | date:'dd.MM.yyyy HH:mm'">{{message.body}}</p>

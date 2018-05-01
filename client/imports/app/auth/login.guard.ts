@@ -13,9 +13,9 @@ export class LoginGuard implements CanActivate {
   }
 
   public canActivate(): Observable<boolean> {
-    if (this._auth.isLoggedIn) {
+    if (this._auth.isLoggedIn || !!localStorage.getItem('user')) {
       this._router.navigate(['/']);
     }
-    return Observable.of(!this._auth.isLoggedIn);
+    return Observable.of(!(this._auth.isLoggedIn || localStorage.getItem('user')));
   }
 }
