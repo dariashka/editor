@@ -1,0 +1,17 @@
+.new-message {
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  width: 100%;
+  padding-bottom: 80px;
+  border-top: 2px solid rgb(130, 130, 130)
+}
+
+.new-message mat-form-field {
+  width: 90%;
+}
+
+.new-message button {
+  float:right;
+  margin-right: 20px;
+}

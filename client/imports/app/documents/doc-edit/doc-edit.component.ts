@@ -15,7 +15,7 @@ export class DocumentEditComponent implements OnInit {
   private _documentSub: Subscription;
   public document: Document;
   public nameEditMode = false;
-
+  public showChat = false;
   @ViewChild('editor') public editor;
 
   constructor(

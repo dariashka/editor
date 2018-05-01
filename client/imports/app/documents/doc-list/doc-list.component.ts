@@ -29,7 +29,10 @@ export class DocumentListComponent implements OnInit, OnDestroy {
     moment.locale('ru');
     this.docListSubscription = MeteorObservable.subscribe('documentList')
       .subscribe(() => {
-        this.documents = <Observable<Document[]>>Documents.find();
+        this.documents = <Observable<Document[]>>Documents.find(
+          {},
+          { sort: { updated: -1 } }
+        );
       });
   }
 

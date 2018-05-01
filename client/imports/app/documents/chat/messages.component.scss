@@ -1,0 +1,44 @@
+.message-wrapper {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.author {
+  max-width: 60%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.author span {
+  font-size: 10px;
+  color: rgb(100, 100, 100);
+  white-space: nowrap;
+}
+
+.message, .my-message {
+  width: 100%;
+  display: inline-flex;
+}
+
+.my-message p {
+  margin: 0 0 0 auto;
+  border-radius: 10px;
+  max-width: 60%;
+  padding: 10px 25px;
+  background-color: #A5D6A7;
+}
+
+.message p {
+  margin: 0;
+  border-radius: 10px;
+  max-width: 60%;
+  padding: 10px 26px;
+  background-color: #EEEEEE;
+}
+
+.my-message .date,
+.message .date {
+  font-size: 10px;
+  color: rgb(100, 100, 100);
+
+}

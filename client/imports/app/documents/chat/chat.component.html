@@ -1,0 +1,18 @@
+<app-messages [messages]="messages | async" [users]="users"></app-messages>
+<div class="new-message">
+    <mat-form-field class="full-width-input">
+        <textarea
+                #newMessage
+                id="newMessage"
+                matInput
+                placeholder="Введите ваше сообщение здесь"
+        ></textarea>
+    </mat-form-field>
+    <button
+            [disabled]="!newMessage.value"
+            mat-raised-button
+            color="primary"
+            (click)="sendMessage()"
+    >Отправить
+    </button>
+</div>

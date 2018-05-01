@@ -15,7 +15,6 @@ import { DocumentEditComponent } from './documents/doc-edit/doc-edit.component';
 import { DocumentListComponent } from './documents/doc-list/doc-list.component';
 import { DocumentsModule } from './documents/documents.module';
 import { HeaderComponent } from './layout/header/header.component';
-import { LayoutComponent } from './layout/layout.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { SharedModule } from './shared/shared.module';
 
@@ -63,7 +62,6 @@ import { SharedModule } from './shared/shared.module';
     HeaderComponent,
     LoginComponent,
     LogoutComponent,
-    LayoutComponent,
     PageNotFoundComponent,
     UserComponent,
   ],

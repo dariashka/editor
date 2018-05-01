@@ -1,6 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 
 import { Documents } from '../../../imports/collections/documents';
+import { Message } from '../../../imports/models/message';
 
 Meteor.methods({
   createDocument(name: string, content: string, authorId: string) {
@@ -8,7 +9,8 @@ Meteor.methods({
       name,
       updated: new Date(),
       content,
-      authorId
+      authorId,
+      chat: []
     });
   },
   getDocument(_id: string) {
@@ -26,5 +28,5 @@ Meteor.methods({
     return Documents.collection.remove({
       _id
     });
-  }
+  },
 });

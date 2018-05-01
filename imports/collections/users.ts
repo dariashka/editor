@@ -1,10 +1,7 @@
-import { MongoObservable } from 'meteor-rxjs';
-import User = Meteor.User;
-
-export const Users = new MongoObservable.Collection<User>('user');
+export const Users = Meteor.users;
 
 
-Users.collection.allow({
+Users.allow({
   insert: () => true,
   remove: () => true,
   update: () => true,

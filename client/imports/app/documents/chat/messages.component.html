@@ -1,0 +1,23 @@
+<div *ngFor="let message of messages">
+    <ng-container *ngIf="!!message.body" [ngSwitch]="message.authorId">
+        <ng-container *ngSwitchCase="myId">
+            <div class="message-wrapper">
+                <div class="my-message">
+                    <p [title]="message.date | date:'dd.MM.yyyy HH:mm'">{{message.body}}</p>
+                </div>
+            </div>
+        </ng-container>
+        <ng-container *ngSwitchDefault>
+            <div class="message-wrapper">
+                <div class="author">
+                    <span>{{ usersDictionary[message.authorId]
+                    && (usersDictionary[message.authorId].username
+                    || usersDictionary[message.authorId].emails[0].address ) }}:</span>
+                </div>
+                <div class="message">
+                    <p [title]="message.date | date:'dd.MM.yyyy HH:mm'">{{message.body}}</p>
+                </div>
+            </div>
+        </ng-container>
+    </ng-container>
+</div>

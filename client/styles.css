@@ -2,6 +2,7 @@ html, body {
     padding: 0;
     margin: 0;
     background-color: #f2f2f2;
+    height: 100%;
 }
 
 *:focus, *:active {
@@ -9,15 +10,12 @@ html, body {
 }
 
 my-app {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
     flex-direction: column;
     position: absolute;
-    top: 130px;
+    top: 64px;
+    height: 100%;
+    min-height: 1000px;
     bottom: 0;
     left: 0;
     right: 0;

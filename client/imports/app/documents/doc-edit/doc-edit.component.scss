@@ -1,3 +1,7 @@
+:host {
+  padding-top: 20px;
+}
+
 .doc-header {
   cursor: pointer;
   display: inline-flex;
@@ -9,6 +13,28 @@
 .doc-header > div {
   padding-left: 15px;
   padding-right: 15px;
+}
+
+.name-wrapper {
+  max-width: 40%;
+  overflow: hidden;
+  display: inline-flex;
+}
+
+.name-wrapper .name {
+  max-width: 80%;
+  overflow: hidden;
+  font-size: 18px;
+  font-weight: 700;
+  text-overflow: ellipsis;
+}
+
+.doc-header .name {
+  white-space: nowrap;
+}
+
+.icon {
+  text-align: center;
 }
 
 .icon .material-icons {

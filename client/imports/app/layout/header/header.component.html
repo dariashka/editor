@@ -1,7 +1,9 @@
 <div>
     <div [routerLink]="['']" class="logo">
-        <span class="logo-style">Dasha's</span>
+        <span class="logo-style">Daryushka's</span>
         <span class="sub-logo">Диск</span>
+        <button *ngIf="isHome" mat-raised-button color="primary" (click)="createNewDocument()">Создать
+        </button>
     </div>
     <div class="user-info" *ngIf="isLoggedIn">
         <button mat-button [matMenuTriggerFor]="userMenu">
@@ -20,8 +22,4 @@
             </button>
         </mat-menu>
     </div>
-</div>
-<div *ngIf="isHome">
-    <button mat-raised-button color="primary" (click)="createNewDocument()">Создать
-    </button>
 </div>
