@@ -1,3 +1,8 @@
+#messages-container {
+  max-height: calc(100vh - 220px);
+  overflow-y: scroll
+}
+
 .message-wrapper {
   margin-top: 10px;
   margin-bottom: 10px;

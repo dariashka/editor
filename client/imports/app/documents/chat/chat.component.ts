@@ -71,6 +71,7 @@ export class ChatComponent implements OnChanges, AfterViewInit {
         this.sendMessage();
       }
     });
+
   }
 
   public sendMessage() {

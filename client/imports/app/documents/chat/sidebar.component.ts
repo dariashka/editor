@@ -5,7 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-sidebar',
   template: `
-      <div cdk-scrollable class="sidebar" [class.open]="isOpen">
+      <div class="sidebar" [class.open]="isOpen">
           <ng-content></ng-content>
       </div>
       <div

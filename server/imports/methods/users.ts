@@ -1,14 +1,14 @@
 import { Meteor } from 'meteor/meteor';
 import { Users } from '../../../imports/collections/users';
-
-// Users.collection.allow({
-//   update: ((userId, doc) => true)
-// });
+import User = Meteor.User;
 
 Meteor.methods({
-  setNickname(nickname: string) {
+  updateUser(updatedUser: User) {
     return Users.update(Meteor.userId(), {
-      nickname
+      $set: {
+        username: updatedUser.username,
+        emails: updatedUser.emails
+      }
     });
   },
 });

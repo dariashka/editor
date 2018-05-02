@@ -34,10 +34,14 @@
                             [(ngModel)]="credentials.email"
                             [placeholder]="'Email'"
                             autofocus
+                            pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+\.([a-zA-Z0-9-])*$"
                             required
                             #email="ngModel"
                     >
                     <mat-error *ngIf="email.hasError('required')">
+                        Введите email
+                    </mat-error>
+                    <mat-error *ngIf="email.hasError('pattern')">
                         Введите корректный email
                     </mat-error>
                 </mat-form-field>
