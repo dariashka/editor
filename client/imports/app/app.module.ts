@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
-import { AccountsModule } from 'angular2-meteor-accounts-ui';
 import { AppComponent } from './app.component';
 import { AuthGuard } from './auth/auth.guard';
 import { AuthService } from './auth/auth.service';
@@ -54,7 +53,6 @@ import { SharedModule } from './shared/shared.module';
         component: PageNotFoundComponent
       }
       ]),
-    AccountsModule,
     BrowserAnimationsModule
   ],
   declarations: [

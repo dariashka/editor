@@ -1,6 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MeteorObservable } from 'meteor-rxjs';
-import { Meteor } from 'meteor/meteor';
 import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription';
 import { Documents } from '../../../../../imports/collections/documents';

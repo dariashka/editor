@@ -1,6 +1,4 @@
 import { Injectable, NgZone } from '@angular/core';
-import { Tracker } from 'meteor/tracker';
-import { Accounts } from 'meteor/accounts-base';
 
 declare var Package;
 declare var _;

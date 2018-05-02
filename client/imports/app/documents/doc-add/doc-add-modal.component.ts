@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { MatDialogRef } from '@angular/material';
 import { Router } from '@angular/router';
-
-import { Meteor } from 'meteor/meteor';
 import { AuthService } from '../../auth/auth.service';
 
 @Component({

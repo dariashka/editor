@@ -1,4 +1,3 @@
-import { Meteor } from 'meteor/meteor';
 import { Messages } from '../../../imports/collections/messages';
 
 Meteor.methods({
