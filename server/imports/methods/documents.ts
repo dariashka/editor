@@ -1,4 +1,7 @@
+import { Meteor } from 'meteor/meteor';
+
 import { Documents } from '../../../imports/collections/documents';
+import { Message } from '../../../imports/models/message';
 
 Meteor.methods({
   createDocument(name: string, content: string, authorId: string) {
