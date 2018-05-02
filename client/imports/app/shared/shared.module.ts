@@ -31,3 +31,4 @@ import { ApplyPipe } from './pipes/apply.pipe';
 })
 export class SharedModule {
 }
+

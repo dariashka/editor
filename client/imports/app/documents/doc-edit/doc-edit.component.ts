@@ -64,3 +64,4 @@ export class DocumentEditComponent implements OnInit {
     location.href = `mailto:?subject=Присоединяйся к редактированию документа ${this.document.name}&body=Документ - ${window.location}`;
   }
 }
+

@@ -19,11 +19,4 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class SidebarComponent {
   @Input() @HostBinding('class.open') public isOpen;
   @Output() isOpenChange = new EventEmitter();
-
-  constructor(
-    private route: ActivatedRoute,
-    private router: Router
-  ) {
-  }
-
 }

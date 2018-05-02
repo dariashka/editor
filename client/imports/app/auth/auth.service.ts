@@ -36,7 +36,7 @@ export class AuthService {
   }
 
   private _getLoginServices(): Array<any> {
-    let services = Package['accounts-oauth'] ? Accounts['oauth'].serviceNames() : [];
+    const services = Package['accounts-oauth'] ? Accounts['oauth'].serviceNames() : [];
     services.sort();
 
     return _.map(services, function (name) {

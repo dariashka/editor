@@ -32,13 +32,8 @@ export class HeaderComponent {
   }
 
   public createNewDocument() {
-    let dialogRef = this._dialog.open(DocumentAddModalComponent, {
+    this._dialog.open(DocumentAddModalComponent, {
       width: '250px',
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      console.log(result);
     });
   }
 }
