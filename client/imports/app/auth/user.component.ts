@@ -7,7 +7,7 @@ import User = Meteor.User;
 @Component({
   selector: 'app-user',
   template: `
-      <div class="flex-container" *loading="isLoggingIn">
+      <div class="flex-container">
           <mat-card class="profile">
               <h2 [innerHTML]="editMode ? 'Редактировать профиль' : 'Профиль'"></h2>
               <hr/>

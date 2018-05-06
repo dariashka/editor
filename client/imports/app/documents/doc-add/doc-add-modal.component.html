@@ -1,4 +1,7 @@
-<mat-form-field>
-    <input matInput [(ngModel)]="name" placeholder="Название документа">
-</mat-form-field>
-<button mat-raised-button (click)="createDocument()" [disabled]="!name">Создать</button>
+<form>
+    <mat-form-field>
+        <input matInput name="name" [(ngModel)]="name" placeholder="Название документа">
+    </mat-form-field>
+    <button mat-raised-button (click)="createDocument()" [disabled]="!name">Создать
+    </button>
+</form>

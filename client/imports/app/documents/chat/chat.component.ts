@@ -21,22 +21,11 @@ import User = Meteor.User;
   styleUrls: ['chat.component.scss']
 })
 export class ChatComponent implements OnChanges, AfterViewInit {
-  private messages: Observable<Array<Message>>;
+  public messages: Observable<Array<Message>>;
   @Input() public docId: string;
   @ViewChild('newMessage') public newMessage;
 
   public users: Array<User>;
-  // public get messages(): Array<Message> {
-  //   return this._messages;
-  // }
-  //
-  // @Input()
-  // public set messages(list: Array<Message>) {
-  //   this._messages = (list || []).sort(
-  //     (a: Message, b: Message) => moment(a.date).isBefore(b.date)
-  //       ? -1
-  //       : 1);
-  // }
 
   constructor(
     private _auth: AuthService,
@@ -54,7 +43,6 @@ export class ChatComponent implements OnChanges, AfterViewInit {
           );
         });
 
-      const users = Meteor.subscribe('userList');
       Tracker.autorun(() => {
         this.users = Users.find({}).fetch();
       });

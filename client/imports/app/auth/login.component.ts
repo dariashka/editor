@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, NgZone } from '@angular/core';
 import { MatSnackBar } from '@angular/material';
 import { Router } from '@angular/router';
 import { Accounts } from 'meteor/accounts-base';
@@ -34,6 +34,7 @@ export class LoginComponent {
   }
 
   constructor(
+    private _zone: NgZone,
     private _snackbar: MatSnackBar,
     private _router: Router,
     private _auth: AuthService
@@ -66,12 +67,10 @@ export class LoginComponent {
   }
 
   private _handleError(error?) {
-    if (error) {
+    this._zone.run(() => {
       this._snackbar.open(error.reason || 'Unknown error', '', {
         duration: 500
       });
-    } else {
-      this._router.navigate(['/documents']);
-    }
+    });
   }
 }

@@ -1,10 +1,12 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material';
 import { ActivatedRoute } from '@angular/router';
 import { MeteorObservable } from 'meteor-rxjs';
 import { Subscription } from 'rxjs/Subscription';
 import { Documents } from '../../../../../imports/collections/documents';
 import { Document } from '../../../../../imports/models/document';
 import { AuthService } from '../../auth/auth.service';
+import { ShareComponent } from './share.component';
 
 @Component({
   selector: 'app-doc-edit',
@@ -20,7 +22,8 @@ export class DocumentEditComponent implements OnInit {
 
   constructor(
     private _route: ActivatedRoute,
-    private _auth: AuthService
+    private _auth: AuthService,
+    private _dialog: MatDialog
   ) {
   }
 
@@ -61,7 +64,9 @@ export class DocumentEditComponent implements OnInit {
   }
 
   public invite() {
-    location.href = `mailto:?subject=Присоединяйся к редактированию документа ${this.document.name}&body=Документ - ${window.location}`;
+    this._dialog.open(ShareComponent, {
+      width: '750px'
+    })
   }
 }
 
